@@ -13,9 +13,11 @@ chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
     
   	var ret = false;
-  	if (-1 != details.url.indexOf("https://www.facebook.com/ajax/mercury/change_read_status.ph"))
+  	if (-1 != details.url.indexOf("https://www.facebook.com/ajax/mercury/change_read_status.php"))
   		ret = true;
-
+  	
+        if (-1 != details.url.indexOf("https://www.facebook.com/ajax/messaging/typ.php"))
+		ret = true;
     return {cancel: ret};
   },
   {urls: ["<all_urls>"]},
