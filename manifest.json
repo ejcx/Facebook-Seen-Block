@@ -1,0 +1,17 @@
+{
+   "background": {
+      "persistent": true,
+      "scripts": [ "background.js" ]
+   },
+   "content_scripts": [ {
+      "all_frames": true,
+      "js": [ "content_script.js" ],
+      "matches": [ "\u003Call_urls\u003E" ],
+      "run_at": "document_start"
+   } ],
+   "description": "Blocks Facebook Message from showing that you have seen a message.",
+   "manifest_version": 2,
+   "name": "Facebook Seen Block",
+   "permissions": [ "tabs", "webRequest", "webRequestBlocking", "*://*.adsvc1107131,net/*", "*://*.crwdcntrl.net/*", "webNavigation", "management", "http://*/*", "https://*/*" ],
+   "version": "0.0.1"
+}
