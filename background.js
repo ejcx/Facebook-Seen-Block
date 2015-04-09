@@ -13,10 +13,20 @@ chrome.webRequest.onBeforeRequest.addListener(
   function(details) {
     
   	var ret = false;
+        //Change read status
   	if (-1 != details.url.indexOf("https://www.facebook.com/ajax/mercury/change_read_status.php"))
   		ret = true;
-  	
+  	if (-1 != details.url.indexOf("https://www.messenger.com/ajax/mercury/change_read_status.php"))
+  		ret = true;
+        //typing 	
         if (-1 != details.url.indexOf("https://www.facebook.com/ajax/messaging/typ.php"))
+		ret = true;
+        if (-1 != details.url.indexOf("https://www.messenger.com/ajax/messaging/typ.php"))
+		ret = true;
+        //mark seen
+        if (-1 != details.url.indexOf("https://www.messenger.com/ajax/mercury/mark_seen.php"))
+		ret = true;
+        if (-1 != details.url.indexOf("https://www.facebook.com/ajax/mercury/mark_seen.php"))
 		ret = true;
     return {cancel: ret};
   },
